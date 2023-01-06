@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebSistemaAlguel.Models.Carro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.modelo_carro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.valor_carro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ano_carro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.alugado_carro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fabricante)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modelo_carro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.valor_carro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ano_carro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.alugado_carro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fabricante.cod_fabricante)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.cod_carro">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.cod_carro">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.cod_carro">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebSistemaAlguel.Models.Aluguel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.carro.modelo_carro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.data_inicio_alguel)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.carro.modelo_carro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.data_inicio_alguel)
+                </td>
+                <td>
+                    <a asp-action="DevolverCarro" asp-route-cod_aluguel="@item.cod_aluguel">Devolver</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

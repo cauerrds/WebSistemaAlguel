@@ -1,0 +1,62 @@
+﻿@model IEnumerable<WebSistemaAlguel.Models.Carro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <form>
+        <input type="text" id="txtPesquisarCarros" name="txtPesquisarCarros" />
+        <input type="submit" id="btn btn=primary" name="Pesquisar" />
+    </form>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.modelo_carro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.valor_carro)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.alugado_carro)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ano_carro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fabricante)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.modelo_carro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.valor_carro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.alugado_carro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ano_carro)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fabricante.nome_fabricante)
+                </td>
+                <td>
+                    <a asp-action="AlugarCarro" asp-route-id="@item.cod_carro">Alugar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

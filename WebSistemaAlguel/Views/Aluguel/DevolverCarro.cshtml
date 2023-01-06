@@ -1,0 +1,43 @@
+﻿@model WebSistemaAlguel.Models.Aluguel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<h3>Devolver carro</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.carro.modelo_carro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.carro.modelo_carro)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.data_inicio_alguel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.data_inicio_alguel)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.data_fim_aluguel)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.data_fim_aluguel)
+        </dd>
+        <dd class="col-sm-10">
+            <span>Preço Final do Aluguel</span>
+        </dd>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.preco_final_aluguel)
+        </dd>
+    </dl>
+
+    <form asp-action="ConfirmarDevolucao">
+        <input type="hidden" asp-for="cod_aluguel" />
+        <input type="submit" value="Devolver" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

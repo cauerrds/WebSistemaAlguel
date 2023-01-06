@@ -1,0 +1,31 @@
+﻿@model WebSistemaAlguel.Models.Carro
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h3>Deseja mesmo alugar este carro?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt></dt>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.modelo_carro)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.modelo_carro)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.valor_carro)
+        </dt>
+        <dt>
+            @Html.DisplayFor(model => model.valor_carro)
+        </dt>
+    </dl>
+
+    <form asp-action="ConfirmarAluguel">
+        <input type="hidden" asp-for="cod_carro"/>
+        <input type="submit" value="Alugar" class="btn btn-danger"/>
+        <a asp-action="Index"Back to list></a>
+    </form>
+</div>
